@@ -1,0 +1,9 @@
+.plList-container {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  padding-left: 10px;
+  justify-content: space-around;
+  overflow-y: auto;
+  direction: rtl;
+}
