@@ -1,0 +1,21 @@
+@import '../../../styles/colors';
+
+.playlist-tracks-container {
+    background: $black;
+    width: 200px;
+    border-top: 1px solid $grey;
+    > div {
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid $grey;
+      cursor: pointer;
+      
+      &:hover,
+      &.active {
+        background-color: $light-blue;
+      }
+    }
+}

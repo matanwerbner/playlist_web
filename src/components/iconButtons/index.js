@@ -8,9 +8,9 @@ const toFloatingActionBtn = (elem) => (
   </FloatingActionButton>
 )
 
-const toRaisedButton = (lable, icon) => (
+const toRaisedButton = (label, icon) => (
   <RaisedButton
-      label={ lable }
+      label={ label }
       secondary={true}
       icon={ icon }
     />
@@ -22,5 +22,6 @@ export const BtnIconPlay = () => toFloatingActionBtn(
 
 export const BtnIconAdd = ({ label }) => toRaisedButton(
   label,
-   <i style={{ color: 'white', margin: '0px 12px 0px 0px' }} className="material-icons add">add</i>
-);
+  <i className="material-icons add">add</i>
+)
+

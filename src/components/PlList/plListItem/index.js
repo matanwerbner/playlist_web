@@ -1,10 +1,10 @@
 import React from 'react';
 import './plItem.scss';
+import {Link} from 'react-router';
+
 import { BtnIconPlay } from '../../iconButtons'
 import {IconFavorite, IconPlay} from '../../icons/';
 import PropTypes from 'prop-types';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
 
 const PlItem = ({item}) => (
   <div
@@ -17,8 +17,10 @@ const PlItem = ({item}) => (
     </div>
     <div className="plList-item-stats">
       <span>
+      
         <IconFavorite/> {item.likes}</span>
       <span>
+      
         <IconPlay/> {item.played}
       </span>
       <div>{ item.user }</div>
@@ -26,7 +28,10 @@ const PlItem = ({item}) => (
     <div className="plList-item-mask">
 
       <div className="plList-item-play">
-        <BtnIconPlay />
+       <Link to={`/playlist/${item.id}`}>
+       <BtnIconPlay />
+       </Link>
+        
       </div>
     </div>
   </div>

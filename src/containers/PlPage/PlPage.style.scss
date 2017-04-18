@@ -1,0 +1,16 @@
+.playlist-container{
+  display: flex;
+  flex: 1;
+
+  .playlist-video-container {
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+    .playlist-title-container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

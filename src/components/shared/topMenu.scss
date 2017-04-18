@@ -3,7 +3,7 @@
 .top-menu {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   padding: 10px 40px;
   font-family: roboto;
   background-color: $black;
@@ -14,8 +14,10 @@
     font-size: 24px;
   }
 
-  .add_circle {
-    color: $light-green;
+  .add {
+    color: #fff;
+    padding-right: 12px;
+    margin-left: 6px !important;
   }
   
 }
