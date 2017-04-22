@@ -3,6 +3,7 @@
 .playlist-tracks-container {
     background: $black;
     width: 200px;
+    overflow: auto;
     border-top: 1px solid $grey;
     > div {
       color: #fff;

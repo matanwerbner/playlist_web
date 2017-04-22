@@ -30,6 +30,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "formsy-material-ui": "0.6.0",
+    "formsy-react": "0.19.2",
+    "lodash": "4.17.4",
     "material-ui": "^0.17.4",
     "object-assign": "4.1.0",
     "react": "15.4.1",
@@ -40,7 +43,11 @@
     "react-tap-event-plugin": "^2.0.1",
     "react-youtube": "7.4.0",
     "redux": "3.6.0",
-    "redux-thunk": "2.1.0"
+    "redux-form": "^6.6.3",
+    "redux-form-material-ui": "4.2.0",
+    "redux-logger": "3.0.1",
+    "redux-thunk": "2.1.0",
+    "uuid": "3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "6.5.4",
@@ -81,6 +88,7 @@
     "prompt": "1.0.0",
     "prop-types": "^15.5.6",
     "react-addons-test-utils": "15.4.1",
+    "react-facebook-login": "3.5.0",
     "react-hot-loader": "3.0.0-beta.6",
     "redux-immutable-state-invariant": "1.2.4",
     "replace": "0.3.0",
