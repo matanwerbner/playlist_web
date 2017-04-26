@@ -10,16 +10,18 @@ import {
   FormsyToggle,
   FormsyAutoComplete
 } from 'formsy-material-ui/lib';
-export default ({song, idx, onRemove}) => {
+import { BtnIconClear } from '../../../components/iconButtons';
+export default ({song, idx, onRemove, onChange}) => {
   return (
-    <div>
-    {idx + 1} -&nbsp;
+    <div className="songItemContainer">
       <FormsyText
                 name={`songs[${idx}].title`}
                 required
+                fullWidth={true}
+                onChange={ onChange }
                 hintText="Youtube URL"
                 floatingLabelText="Youtube URL"/>
-      <button type="button" onClick={ onRemove.bind(this, song.id)}></button>
+      <BtnIconClear onClick={ onRemove} />
     </div>
 
   )

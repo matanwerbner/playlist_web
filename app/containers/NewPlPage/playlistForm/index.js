@@ -11,10 +11,10 @@ import {
   FormsyToggle,
   FormsyAutoComplete
 } from 'formsy-material-ui/lib';
+import YoutubeExtract from '../../../utils/youtubeExtract';
 const uuidV1 = require('uuid/v1');
 import SongItem from './songItem';
-import {List, ListItem} from 'material-ui/List';
-import Subheader from 'material-ui/Subheader';
+import {BtnIconAdd} from '../../../components/iconButtons';
 
 class MyForm extends Component {
 
@@ -23,12 +23,19 @@ class MyForm extends Component {
     this.submitForm = this
       .submitForm
       .bind(this);
-    this.onRemoveSong = this.onRemoveSong.bind(this);
+    this.onSongChange = this
+      .onSongChange
+      .bind(this);
+    this.onRemoveSong = this
+      .onRemoveSong
+      .bind(this);
     this.state = {
       title: '',
-      songs: [{
-        id: uuidV1()
-      }]
+      songs: [
+        {
+          id: uuidV1()
+        }
+      ]
     }
   }
 
@@ -41,16 +48,29 @@ class MyForm extends Component {
       songs: this
         .state
         .songs
-        .concat({ id: uuidV1()})
+        .concat({id: uuidV1()})
     })
   }
 
   onRemoveSong(id) {
-    
+    if (this.state.songs.length == 1) {
+      return;
+    }
     this.setState({
       ...this.state,
-      songs: this.state.songs.filter((s) => s.id != id)
+      songs: this
+        .state
+        .songs
+        .filter((s) => s.id != id)
     });
+  }
+
+  onSongChange(id, e) {
+    const extractedYoutubeId = YoutubeExtract(e.currentTarget.value);
+    this.props.onLoadPreview(extractedYoutubeId);
+    //
+    // /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/.
+    // exec('https://www.youtube.com/watch?v=MT30X9klyL8')[7]
   }
 
   render() {
@@ -67,24 +87,28 @@ class MyForm extends Component {
             hintText="שם הפלייליסט"
             floatingLabelText="שם הפלייליסט"/>
           <div className="songs-container">
-            {
-              this
+            {this
               .state
               .songs
-              .map((song, idx) => 
-              <SongItem idx={idx} 
-                song={song} 
+              .map((song, idx) => <SongItem
+                idx={idx}
+                song={song}
+                onChange={this
+                .onSongChange
+                .bind(this, song.id)}
                 key={song.id}
-                onRemove={ this.onRemoveSong }/> 
-            )}
-            <RaisedButton type="button" 
-            onClick={() => this.addSong()}
-            label="הוספת שיר" style={{ flex: 1 }}/>
+                onRemove={this
+                .onRemoveSong
+                .bind(this, song.id)}/>)}
+            <div>
+              <BtnIconAdd onClick={() => this.addSong()}/>
+            </div>
 
           </div>
 
         </div>
         <div className="form-footer">
+
           <RaisedButton type="submit" label="Submit"/>
 
         </div>

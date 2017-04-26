@@ -1,0 +1,48 @@
+.newPlPageContainer {
+     flex: 1;
+    display: flex;
+    justify-content: center;
+    .newPlInnerContainer {
+      display: flex;
+      flex: 1;
+      
+      .playlistPreviewContainer {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      > form {
+        width: 500px;
+        padding: 0px 30px;
+        display: flex;
+        flex-direction: column;
+        background: white;
+        padding: 20px;
+        overflow: auto;
+        .form-body {
+          flex: 1;
+          .songs-container {
+            padding-right: 20px;
+            display: flex;
+            flex-direction: column;
+            .songItemContainer {
+              display: flex;
+              flex-direction: row;
+              align-items: flex-end;
+              > * {
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+
+        .form-footer {
+          display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        }
+      }
+
+    }
+}

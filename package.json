@@ -11,7 +11,7 @@
     "start-message": "babel-node tools/startMessage.js",
     "prestart": "npm-run-all --parallel start-message",
     "start": "npm-run-all --parallel test:watch open:src lint:watch",
-    "open:src": "babel-node tools/srcServer.js",
+    "open:src": "babel-node server/index.js",
     "open:dist": "babel-node tools/distServer.js",
     "lint": "esw webpack.config.* src tools --color",
     "lint:watch": "npm run lint -- --watch",
@@ -25,7 +25,9 @@
     "test:cover:CI": "npm run test:CI -- --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "npm run test -- --watch",
     "open:cover": "npm run test:cover && open coverage/lcov-report/index.html",
-    "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
+    "analyze-bundle": "babel-node ./tools/analyzeBundle.js",
+    "go-server": "nodemon --exec 'babel-node server/index.js'",
+    "go": "babel-node server/index.js"
   },
   "author": "",
   "license": "MIT",
@@ -47,6 +49,8 @@
     "redux-form-material-ui": "4.2.0",
     "redux-logger": "3.0.1",
     "redux-thunk": "2.1.0",
+    "request": "2.81.0",
+    "request-promise": "4.2.0",
     "uuid": "3.0.1"
   },
   "devDependencies": {
@@ -96,7 +100,7 @@
     "sass-loader": "6.0.2",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
-    "webpack": "2.2.1",
+    "webpack": "2.4.1",
     "webpack-bundle-analyzer": "2.1.1",
     "webpack-dev-middleware": "1.9.0",
     "webpack-hot-middleware": "2.17.1",
